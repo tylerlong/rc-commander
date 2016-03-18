@@ -1,0 +1,25 @@
+{
+  "name": "rc-commander",
+  "version": "1.0.0",
+  "description": "RingCentral in your terminal",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tylerlong/rc-commander.git"
+  },
+  "keywords": [
+    "RingCentral"
+  ],
+  "bin": {
+    "rc": "rc.js"
+  },
+  "author": "Tyler Long",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tylerlong/rc-commander/issues"
+  },
+  "homepage": "https://github.com/tylerlong/rc-commander#readme"
+}
