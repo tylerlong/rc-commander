@@ -30,6 +30,5 @@ Create `~/.rc-commander.json`, with the following content:
 Enjoy RingCentral in your terminal:
 
 ```
-rc sms 147258369 "hello world"
-
+rc sms -n 147258369 -t "hello world"
 ```
