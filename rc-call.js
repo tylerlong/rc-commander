@@ -19,24 +19,44 @@ if(program.number === undefined) {
 console.log("calling...");
 
 
-var timeout = null;
-var ringout = {
-  from: { phoneNumber: config.username },
-  to: { phoneNumber: program.number  },
-  playPrompt: true
-};
+var interval = null;
+var ringout = {};
 
 rcsdk.platform()
   .login({
-      username: config.username, // phone number in full format
-      extension: '', // leave blank if direct number is used
+      username: config.username,
+      extension: '',
       password: config.password
   })
   .then(function(response){
-    rcsdk.platform().post('/account/~/extension/~/ringout', ringout)
+    rcsdk.platform().post('/account/~/extension/~/ringout', {
+      from: { phoneNumber: config.username },
+      to: { phoneNumber: program.number  },
+      playPrompt: true
+    })
       .then(function(response){
-        console.log(response.json().status.callStatus);
+        ringout = response.json();
+        console.log('First status:', ringout.status.callStatus);
+        interval = setInterval(function() {
+          console.log('interval');
+          if(ringout.status && ringout.status.callStatus !== "InProgress") {
+            clearInterval(interval);
+          }
+          rcsdk.platform().get(ringout.uri)
+            .then(function(response){
+              ringout = response.json();
+              console.log('Current status:', ringout.status.callStatus);
+            }).catch(errorHandler);
+        }, 3000);
       })
       .catch(errorHandler);
   })
   .catch(errorHandler);
+
+
+setTimeout(function() { // hangup
+  clearInterval(interval);
+  if(ringout.status && ringout.status.callStatus !== "InProgress") {
+    rcsdk.platform().delete(ringout.uri).catch(errorHandler);
+  }
+}, 10000);

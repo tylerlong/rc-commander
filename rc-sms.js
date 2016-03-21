@@ -22,8 +22,8 @@ console.log("sending sms...");
 
 rcsdk.platform()
   .login({
-      username: config.username, // phone number in full format
-      extension: '', // leave blank if direct number is used
+      username: config.username,
+      extension: '',
       password: config.password
   })
   .then(function(response) {
