@@ -3,6 +3,13 @@
 RingCentral in your terminal
 
 
+## Support features
+
+This project is new, currently only one feature is supported:
+
+1. send sms
+
+
 ## Quick start
 
 ### Step 1
@@ -34,6 +41,14 @@ Enjoy RingCentral in your terminal:
 
 ```
 rc sms -n 147258369 -t "hello world"
+```
+
+
+## Help
+
+```
+rc -h
+rc sms -h
 ```
 
 
