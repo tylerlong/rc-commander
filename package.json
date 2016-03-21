@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/tylerlong/rc-commander#readme",
   "dependencies": {
+    "commander": "^2.9.0",
     "ringcentral": "^2.0.5"
   }
 }
