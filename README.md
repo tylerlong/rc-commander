@@ -1,13 +1,17 @@
 # rc-commander
 
-RingCentral in your terminal
+RingCentral in your terminal.
+
+This is currently for learning purpose only, there are bugs / issues.
 
 
 ## Support features
 
-This project is new, currently only one feature is supported:
+This project is new, currently only 2 features are supported:
 
 1. send sms
+1. make telephony calls
+
 
 
 ## Quick start
@@ -41,6 +45,7 @@ Enjoy RingCentral in your terminal:
 
 ```
 rc sms -n 147258369 -t "hello world"
+rc call -n 147258369
 ```
 
 
@@ -49,9 +54,5 @@ rc sms -n 147258369 -t "hello world"
 ```
 rc -h
 rc sms -h
+rc call -h
 ```
-
-
-## todo
-
-1. submit to npm
