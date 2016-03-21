@@ -1,27 +1,25 @@
 var program = require('commander');
+var config = require('./config');
+var rcsdk = require('./rcsdk');
 
 
 program
   .version(require('./package.json').version)
-  .option('-n, --number <number>', 'send to which number')
   .option('-t, --text <text>', 'text of the sms')
+  .option('-n, --number <number>', 'send to which number')
   .parse(process.argv);
+
+
+if(program.text === undefined || program.number === undefined) {
+  console.log('options required: -t <text> -n <number>');
+  return;
+}
 
 
 console.log("sending sms...");
 
 
-var SDK = require('ringcentral');
-var fs = require('fs');
-
-var config = JSON.parse(fs.readFileSync(process.env['HOME'] + '/.rc-commander.json', 'utf8'));
-var rcsdk = new SDK({ server: config.server,
-  appKey: config.appKey,
-  appSecret: config.appSecret });
-
-var platform = rcsdk.platform();
-
-platform
+rcsdk.platform()
     .login({
         username: config.username, // phone number in full format
         extension: '', // leave blank if direct number is used

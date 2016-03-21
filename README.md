@@ -8,7 +8,7 @@ RingCentral in your terminal
 ### Step 1
 
 ```
-npm install rc-commander
+npm install -g rc-commander
 ```
 
 ### Step 2
@@ -25,6 +25,9 @@ Create `~/.rc-commander.json`, with the following content:
 }
 ```
 
+Please note that the file has to be in your home folder.
+
+
 ### Step 3
 
 Enjoy RingCentral in your terminal:
@@ -32,3 +35,8 @@ Enjoy RingCentral in your terminal:
 ```
 rc sms -n 147258369 -t "hello world"
 ```
+
+
+## todo
+
+1. submit to npm
