@@ -38,7 +38,6 @@ rcsdk.platform()
         ringout = response.json();
         console.log('First status:', ringout.status.callStatus);
         interval = setInterval(function() {
-          console.log('interval');
           if(ringout.status && ringout.status.callStatus !== "InProgress") {
             clearInterval(interval);
           }
@@ -59,4 +58,4 @@ setTimeout(function() { // hangup
   if(ringout.status && ringout.status.callStatus !== "InProgress") {
     rcsdk.platform().delete(ringout.uri).catch(errorHandler);
   }
-}, 10000);
+}, 12000);
