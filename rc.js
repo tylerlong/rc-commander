@@ -7,4 +7,5 @@ var program = require('commander');
 program
   .version(require('./package.json').version)
   .command('sms', 'send sms')
+  .command('call', 'make telephony call')
   .parse(process.argv);

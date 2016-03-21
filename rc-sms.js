@@ -1,6 +1,7 @@
 var program = require('commander');
 var config = require('./config');
 var rcsdk = require('./rcsdk');
+var errorHandler = require('./errorHandler');
 
 
 program
@@ -20,19 +21,18 @@ console.log("sending sms...");
 
 
 rcsdk.platform()
-    .login({
-        username: config.username, // phone number in full format
-        extension: '', // leave blank if direct number is used
-        password: config.password
+  .login({
+      username: config.username, // phone number in full format
+      extension: '', // leave blank if direct number is used
+      password: config.password
+  })
+  .then(function(response) {
+    rcsdk.platform().post('/account/~/extension/~/sms', {
+      text: program.text,
+      from: { phoneNumber: config.username },
+      to: [{ phoneNumber: program.number }],
     })
-    .then(function(response) {
-      rcsdk.platform().post('/account/~/extension/~/sms', {
-        text: program.text,
-        from: { phoneNumber: '17322764403' },
-        to: [{ phoneNumber: program.number }],
-      }).then(function() { console.log('sms sent'); })
-        .catch(function(e) { console.log(e); });
-    })
-    .catch(function(e) {
-        console.log(e.message  || 'Server cannot authorize user');
-    });
+      .then(function() { console.log('sms sent'); })
+      .catch(errorHandler);
+  })
+  .catch(errorHandler);
