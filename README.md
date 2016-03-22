@@ -7,11 +7,11 @@ This is currently for learning purpose only, there are bugs / issues.
 
 ## Support features
 
-This project is new, currently only 2 features are supported:
+This project is new, currently only 3 features are supported:
 
 1. send sms
 1. make telephony calls
-
+1. send fax
 
 
 ## Quick start
@@ -46,6 +46,7 @@ Enjoy RingCentral in your terminal:
 ```
 rc sms -n 147258369 -t "hello world"
 rc call -n 147258369
+rc fax -n 147258369 -f /path/to/the/file
 ```
 
 
@@ -55,4 +56,5 @@ rc call -n 147258369
 rc -h
 rc sms -h
 rc call -h
+rc fax -h
 ```
