@@ -46,7 +46,7 @@ Enjoy RingCentral in your terminal:
 ```
 rc sms -n 147258369 -t "hello world"
 rc call -n 147258369
-rc fax -n 147258369 -f /path/to/the/file
+rc fax -n 147258369 -f "/path/to/the/file"
 ```
 
 
