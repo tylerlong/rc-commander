@@ -1,10 +1,9 @@
 {
   "name": "rc-commander",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "RingCentral in your terminal",
   "main": "index.js",
   "scripts": {
-    "test": ""
   },
   "repository": {
     "type": "git",
