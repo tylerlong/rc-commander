@@ -2,15 +2,13 @@
 
 RingCentral in your terminal.
 
-This is currently for learning purpose only, there are bugs / issues.
 
-
-## Support features
+## Supported features
 
 This project is new, currently only 3 features are supported:
 
 1. send sms
-1. make telephony calls
+1. ring out
 1. send fax
 
 
@@ -58,3 +56,11 @@ rc sms -h
 rc call -h
 rc fax -h
 ```
+
+
+## Known issues:
+
+`rc call` cannot help you to make a real phone call yet. I need to spend some time on this project: https://github.com/ringcentral/ringcentral-web-phone
+
+
+`rc fax` doesn't work yet. It is confirmed as ringcentral-js SDK's bug: https://github.com/ringcentral/ringcentral-js/issues/13
