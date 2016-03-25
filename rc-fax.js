@@ -29,7 +29,7 @@ var body = {
 formData.append('json', new Buffer(JSON.stringify(body)),
   {filename: 'request.json', contentType: 'application/json'});
 
-formData.append('attachment', new Buffer('some plain text'), 'text.txt', {type: 'application/octet-stream'});
+formData.append('attachment', new Buffer('some plain text'), {filename: 'text.txt', contentType: 'text/plain'});
 
 formData.append('attachment', fs.createReadStream(program.file));
 
