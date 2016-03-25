@@ -23,7 +23,7 @@ console.log('sending fax...');
 var formData = new FormData();
 
 var body = {
-  to: { phoneNumber: program.number },
+  to: [{ phoneNumber: program.number }],
   faxResolution: 'High'
 };
 formData.append('json', new Buffer(JSON.stringify(body)),
