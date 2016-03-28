@@ -44,7 +44,7 @@ Enjoy RingCentral in your terminal:
 ```
 rc sms -n 147258369 -t "hello world"
 rc call -n 147258369
-rc fax -n 147258369 -f "/path/to/the/file"
+rc fax -n 147258369 -t "hello world" -f "/path/to/the/file"
 ```
 
 
@@ -61,6 +61,3 @@ rc fax -h
 ## Known issues:
 
 `rc call` cannot help you to make a real phone call yet. I need to spend some time on this project: https://github.com/ringcentral/ringcentral-web-phone
-
-
-`rc fax` doesn't work yet. It is confirmed as ringcentral-js SDK's bug: https://github.com/ringcentral/ringcentral-js/issues/13
